@@ -26,14 +26,7 @@
   text-transform: uppercase;
   font-weight: 500;
   transition: all 0.2s ease-in-out;
-}
-
-.title {
-  color: #999; /* Set the initial color of the title to grey */
-}
-
-.navMenu a {
-  color: #999; /* Set the initial color of the navigation menu items to grey */
+  color: #999; /* Set the initial color of the toolbar items to grey */
   display: inline-block;
   margin-right: 50px; /* Adjust the value to increase/decrease space between items */
   transition: all 0.3s ease-in-out;
