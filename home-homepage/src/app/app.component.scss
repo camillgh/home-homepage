@@ -16,7 +16,8 @@
   height: 70px; /* Increase the height to make the toolbar taller */
   color: white;
   padding: 0 20px;
-  background-color: rgba(0, 0, 0, 0); /* Set the background color with 50% opacity */
+  background-color: transparent; /* Set the background color to transparent */
+  z-index: 1000; /* Set z-index to ensure the toolbar stays on top of other elements */
 }
 
 .title,
@@ -27,9 +28,11 @@
   font-weight: 500;
   transition: all 0.2s ease-in-out;
   color: #999; /* Set the initial color of the toolbar items to grey */
+}
+
+.navMenu a {
   display: inline-block;
-  margin-right: 50px; /* Adjust the value to increase/decrease space between items */
-  transition: all 0.3s ease-in-out;
+  margin-right: 50px;
 }
 
 /* Styles for the navigation menu on the right side */
@@ -38,7 +41,7 @@
   align-items: center;
 }
 
-/* Individual colors on hover */
+/* Individual colors on hover and when active */
 .navMenu a:nth-child(1):hover,
 .navMenu a:nth-child(1).active {
   color: #fddb3a; /* Set individual color on hover and when active for the first item */
@@ -58,7 +61,3 @@
 .navMenu a:nth-child(4).active {
   color: #2196f3; /* Set individual color on hover and when active for the fourth item */
 }
-
-
-
-  
