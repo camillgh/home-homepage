@@ -1,14 +1,12 @@
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
   <!-- Make the title clickable and link to the landing page -->
-  <a routerLink="/" class="title">St. Olavs Gate 5A</a>
+  <a routerLink="/" class="title" [class.active]="activeRoute === '/'">St. Olavs Gate 5A</a>
   <div class="toolbar-right">
     <!-- Navigation menu with the provided styles -->
     <nav class="navMenu">
-      <a routerLink="/kokebok">Kokebok</a>
-      <a routerLink="/to-doodelidoo">To doodelidoo</a>
-      <div class="dot"></div>
-      <div class="dot"></div>
+      <a routerLink="/kokebok" [class.active]="activeRoute === '/kokebok'">Kokebok</a>
+      <a routerLink="/to-doodelidoo" [class.active]="activeRoute === '/to-doodelidoo'">To doodelidoo</a>
     </nav>
   </div>
 </div>

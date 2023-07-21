@@ -38,23 +38,27 @@
   align-items: center;
 }
 
-  /* Individual colors on hover */
-  .navMenu a:nth-child(1):hover {
-    color: #fddb3a; /* Set individual color on hover for the first item */
-  }
-  
-  .navMenu a:nth-child(2):hover {
-    color: #ff5722; /* Set individual color on hover for the second item */
-  }
-  
-  .navMenu a:nth-child(3):hover {
-    color: #9c27b0; /* Set individual color on hover for the third item */
-  }
-  
-  .navMenu a:nth-child(4):hover {
-    color: #2196f3; /* Set individual color on hover for the fourth item */
-  }
-  
+/* Individual colors on hover */
+.navMenu a:nth-child(1):hover,
+.navMenu a:nth-child(1).active {
+  color: #fddb3a; /* Set individual color on hover and when active for the first item */
+}
+
+.navMenu a:nth-child(2):hover,
+.navMenu a:nth-child(2).active {
+  color: #ff5722; /* Set individual color on hover and when active for the second item */
+}
+
+.navMenu a:nth-child(3):hover,
+.navMenu a:nth-child(3).active {
+  color: #9c27b0; /* Set individual color on hover and when active for the third item */
+}
+
+.navMenu a:nth-child(4):hover,
+.navMenu a:nth-child(4).active {
+  color: #2196f3; /* Set individual color on hover and when active for the fourth item */
+}
+
 
 
   
