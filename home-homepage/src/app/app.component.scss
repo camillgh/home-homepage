@@ -36,6 +36,7 @@
   color: #999; /* Set the initial color of the navigation menu items to grey */
   display: inline-block;
   margin-right: 50px; /* Adjust the value to increase/decrease space between items */
+  transition: all 0.3s ease-in-out;
 }
 
 /* Styles for the navigation menu on the right side */
