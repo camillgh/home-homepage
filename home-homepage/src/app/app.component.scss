@@ -1,0 +1,61 @@
+/* Global styles for the app */
+.app-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Styles for the toolbar */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Align items and title to opposite ends */
+  height: 70px; /* Increase the height to make the toolbar taller */
+  color: white;
+  padding: 0 20px;
+}
+
+.title,
+.navMenu a {
+  text-decoration: none;
+  font-size: 2.4em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.title {
+  color: #999; /* Set the initial color of the title to grey */
+}
+
+.navMenu a {
+  color: #999; /* Set the initial color of the navigation menu items to grey */
+  display: inline-block;
+  margin-right: 50px; /* Adjust the value to increase/decrease space between items */
+}
+
+/* Styles for the navigation menu on the right side */
+.navMenu {
+  display: flex;
+  align-items: center;
+}
+
+  /* Individual colors on hover */
+  .navMenu a:nth-child(1):hover {
+    color: #fddb3a; /* Set individual color on hover for the first item */
+  }
+  
+  .navMenu a:nth-child(2):hover {
+    color: #ff5722; /* Set individual color on hover for the second item */
+  }
+  
+  .navMenu a:nth-child(3):hover {
+    color: #9c27b0; /* Set individual color on hover for the third item */
+  }
+  
+  .navMenu a:nth-child(4):hover {
+    color: #2196f3; /* Set individual color on hover for the fourth item */
+  }
+  
+
+
+  
