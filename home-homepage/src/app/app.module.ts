@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
+import { LandingPageComponent } from './planting-page/planting-page.component';
 import { KokebokPageComponent } from './kokebok-page/kokebok-page.component';
 import { ToDoodelidooPageComponent } from './to-doodelidoo-page/to-doodelidoo-page.component';
 

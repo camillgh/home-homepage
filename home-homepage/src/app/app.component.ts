@@ -21,7 +21,7 @@ export class AppComponent {
   @HostListener('window:scroll', ['$event'])
   onScroll() {
     const currentRoute = this.router.url;
-    const landingPageContainer = document.querySelector('.landing-page') as HTMLElement;
+    const landingPageContainer = document.querySelector('.planting-page') as HTMLElement;
     const componentContainers = document.querySelectorAll('.component-container');
 
     if (landingPageContainer) {
