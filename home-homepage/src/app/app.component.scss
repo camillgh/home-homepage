@@ -6,12 +6,17 @@
 
 /* Styles for the toolbar */
 .toolbar {
+  position: fixed; /* Make the toolbar fixed to the top of the viewport */
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   align-items: center;
   justify-content: space-between; /* Align items and title to opposite ends */
   height: 70px; /* Increase the height to make the toolbar taller */
   color: white;
   padding: 0 20px;
+  background-color: rgba(0, 0, 0, 0); /* Set the background color with 50% opacity */
 }
 
 .title,
