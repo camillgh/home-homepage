@@ -5,4 +5,5 @@
   background-repeat: no-repeat;
   opacity: 0.5;
   min-height: 100vh; /* Set min-height to ensure content pushes the page down */
+  pointer-events: none; /* Allow click events to pass through the element */
 }
