@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { PlantingPageComponent } from './planting-page/planting-page.component';
 import { KokebokPageComponent } from './kokebok-page/kokebok-page.component';
 import { ToDoodelidooPageComponent } from './to-doodelidoo-page/to-doodelidoo-page.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { ToDoodelidooPageComponent } from './to-doodelidoo-page/to-doodelidoo-pa
     PlantingPageComponent,
     KokebokPageComponent,
     ToDoodelidooPageComponent,
+    LandingPageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
