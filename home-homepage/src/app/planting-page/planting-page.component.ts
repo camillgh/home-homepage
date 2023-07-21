@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './planting-page.component.html',
   styleUrls: ['./planting-page.component.scss']
 })
-export class LandingPageComponent {
+export class PlantingPageComponent {}
 
 }
