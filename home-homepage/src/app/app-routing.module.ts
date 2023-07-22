@@ -8,15 +8,10 @@ import { ToDoodelidooPageComponent } from './to-doodelidoo-page/to-doodelidoo-pa
 import { LandingPageComponent } from './landing-page/landing-page.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: LandingPageComponent,
-    children: [
-      { path: 'planteting', component: PlantingPageComponent },
-      { path: 'kokebok', component: KokebokPageComponent },
-      { path: 'to-doodelidoo', component: ToDoodelidooPageComponent },
-    ],
-  },
+  { path: '', component: LandingPageComponent },
+  { path: 'planteting', component: PlantingPageComponent },
+  { path: 'kokebok', component: KokebokPageComponent },
+  { path: 'to-doodelidoo', component: ToDoodelidooPageComponent },
 ];
 
 @NgModule({
