@@ -16,13 +16,15 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #111;
+  text-shadow: 0 0 10px #fff;
 }
 
 .wrapper {
   animation: scroll 200s linear infinite;
   background: url("https://images.unsplash.com/photo-1465146633011-14f8e0781093?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3450&q=80"),
-    #111111;
-  color: #eee;
+    #fff;
+  filter: brightness(150%);
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -42,6 +44,11 @@ body {
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
+  mix-blend-mode: multiply;
+}
+
+.buttons img {
+  max-width: 100px;
 }
 
 @media (max-width: 768px) {
