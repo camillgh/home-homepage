@@ -1,0 +1,16 @@
+home-button {
+  background-image: url("/assets/home.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  mix-blend-mode: multiply;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 1rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}

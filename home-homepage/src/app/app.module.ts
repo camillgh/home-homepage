@@ -16,6 +16,7 @@ import { HomeButtonComponent } from './buttons/home-button/home-button.component
     KokebokPageComponent,
     ToDoodelidooPageComponent,
     LandingPageComponent,
+    HomeButtonComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
