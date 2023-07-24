@@ -1,0 +1,32 @@
+// planting-page.component.scss
+
+.planting-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  width: 80vw; /* 80% of the viewport width */
+  max-height: 80vh; /* 80% of the viewport height */
+  object-fit: contain;
+}
+
+// home-button {
+//   background-image: url("/assets/home.gif");
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   mix-blend-mode: multiply;
+//   width: 5%;
+//   height: 10%;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   margin: 1rem;
+//   padding: 0.5rem;
+//   border: none;
+//   border-radius: 0.5rem;
+//   cursor: pointer;
+// }
