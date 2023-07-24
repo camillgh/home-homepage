@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-button',
@@ -6,13 +7,8 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./home-button.component.scss'],
 })
 export class HomeButtonComponent {
-  constructor() {
-    console.log('HomeButtonComponent initialized.');
-  }
+  constructor(private router: Router) {}
 
-  ngOnInit() {
-    console.log('HomeButtonComponent rendered on the page.');
-  }
   isHovered: boolean = false;
   isClicked: boolean = false;
 
@@ -25,7 +21,7 @@ export class HomeButtonComponent {
   }
 
   onClick(): void {
-    this.isClicked = !this.isClicked;
+    this.router.navigate(['/landing']);
   }
   @HostListener('document:click', ['$event'])
   outsideClick(event: any): void {

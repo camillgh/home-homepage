@@ -1,6 +1,9 @@
-<div
+<a
   class="home-button"
+  (click)="onClick()"
   (mouseenter)="startAnimation()"
   (mouseleave)="stopAnimation()"
-  (click)="onClick()"
-></div>
+  routerLink="/"
+>
+  <img src="assets/home.gif" width="100%" height="100%" />
+</a>
