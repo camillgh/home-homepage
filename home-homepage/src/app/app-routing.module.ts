@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'planteting', component: PlantingPageComponent },
   { path: 'kokebok', component: KokebokPageComponent },
   { path: 'to-doodelidoo', component: ToDoodelidooPageComponent },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
