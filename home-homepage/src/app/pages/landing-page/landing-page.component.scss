@@ -71,23 +71,27 @@ body {
 .buttons a {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  align-content: flex-start;
   text-decoration: none;
   color: #bbb;
+  height: 100%;
+}
+
+.buttons b {
+  margin-top: auto;
+  font-size: 4vw;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Shadows Into Light";
+  display: flex;
+  align-items: center;
 }
 
 .buttons img {
   max-width: 150px;
   max-height: 180px;
-}
-
-.buttons b {
-  margin-top: 0.5rem;
-  font-size: 2rem;
-  font-weight: bold;
-  text-align: center;
-  font-family: "Shadows Into Light";
 }
 
 /* Additional styling for anchor tag on hover (optional) */
