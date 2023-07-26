@@ -25,6 +25,10 @@ p {
   color: #000000;
 }
 .page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 40vw;
   height: 55vw;
   float: left;
@@ -32,6 +36,12 @@ p {
   background: top no-repeat;
   background-size: cover;
 }
+
+.page h1 {
+  font-size: 3rem;
+  text-align: center;
+}
+
 .page:nth-child(even) {
   clear: both;
 }
