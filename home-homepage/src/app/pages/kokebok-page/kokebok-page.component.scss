@@ -1,69 +1,57 @@
 :host {
-  display: block;
-  height: 100vh;
-  background: white;
-  background-image: linear-gradient(
-      90deg,
-      rgba(200, 0, 0, 0.5) 50%,
-      transparent 0
-    ),
-    linear-gradient(rgba(200, 0, 0, 0.5) 50%, transparent 0);
-  background-size: 30px 30px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  height: 100vh; /* 100% of the viewport height */
+  background-color: #f9f2bb; /* Light yellow background color */
 }
 
 .book {
   transition: opacity 0.4s 0.2s;
-}
-p {
-  margin-top: 8vw;
-  text-align: center;
-  font-size: 5vw;
-  color: #000000;
-}
-.page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 40vw;
-  height: 55vw;
-  float: left;
-  margin-bottom: 0.5em;
-  background: top no-repeat;
-  background-size: cover;
+  margin: 0 auto;
+  background-color: #f9f2bb; /* Light yellow background color */
 }
 
-.page h1 {
-  font-size: 3rem;
+p {
+  margin-top: 2.5vw; /* Adjust margin to center the book vertically */
   text-align: center;
+  font-size: 2.5vw; /* Adjust font size for better visibility */
+  color: #000000;
+}
+
+.page {
+  width: 20vw; /* Decrease the width for responsiveness */
+  height: 27.5vw; /* Decrease the height for responsiveness */
+  margin-bottom: 0.25em;
+  background: top no-repeat;
+  background-size: cover;
 }
 
 .page:nth-child(even) {
   clear: both;
 }
+
 .book {
   perspective: 250vw;
 }
+
 .book .pages {
-  width: 80vw;
-  height: 55vw;
+  width: 40vw; /* Decrease the width for responsiveness */
+  height: 27.5vw; /* Decrease the height for responsiveness */
   position: relative;
   transform-style: preserve-3d;
   backface-visibility: hidden;
   border-radius: 4px;
 }
+
 .book .page {
   float: none;
   clear: none;
   margin: 0;
   position: absolute;
   top: 0;
-  width: 40vw;
-  height: 55vw;
+  width: 20vw; /* Decrease the width for responsiveness */
+  height: 27.5vw; /* Decrease the height for responsiveness */
   transform-origin: 0 0;
   transition: transform 1.4s;
   backface-visibility: hidden;
@@ -72,6 +60,7 @@ p {
   user-select: none;
   background-color: #f0f0f0;
 }
+
 .book .page:before {
   content: "";
   position: absolute;
@@ -82,21 +71,26 @@ p {
   transition: background 0.7s;
   z-index: 2;
 }
+
 .book .page:nth-child(odd) {
   pointer-events: all;
   transform: rotateY(0deg);
   right: 0;
   border-radius: 0 4px 4px 0;
 }
+
 .book .page:nth-child(odd):hover {
   transform: rotateY(-15deg);
 }
+
 .book .page:nth-child(odd):hover:before {
   background: rgba(0, 0, 0, 0.03);
 }
+
 .book .page:nth-child(odd):before {
   background: rgba(0, 0, 0, 0);
 }
+
 .book .page:nth-child(even) {
   pointer-events: none;
   transform: rotateY(180deg);
@@ -105,46 +99,58 @@ p {
   border-radius: 4px 0 0 4px;
   border-color: black;
 }
+
 .book .page:nth-child(even):before {
   background: rgba(0, 0, 0, 0.2);
 }
+
 .book .page.grabbing {
   transition: none;
 }
+
 .book .page.flipped:nth-child(odd) {
   pointer-events: none;
   transform: rotateY(-180deg);
 }
+
 .book .page.flipped:nth-child(odd):before {
   background: rgba(0, 0, 0, 0.2);
 }
+
 .book .page.flipped:nth-child(even) {
   pointer-events: all;
   transform: rotateY(0deg);
 }
+
 .book .page.flipped:nth-child(even):hover {
   transform: rotateY(15deg);
 }
+
 .book .page.flipped:nth-child(even):hover:before {
   background: rgba(0, 0, 0, 0.03);
 }
+
 .book .page.flipped:nth-child(even):before {
   background: rgba(0, 0, 0, 0);
 }
+
 *,
-* :before,
+*:before,
 *:after {
   box-sizing: border-box;
 }
+
 html,
 body {
   font-family: "Lovers Quarrel", cursive;
   background: #333;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
 html {
   height: 100%;
 }
+
 body {
   min-height: 100%;
   display: flex;
@@ -153,6 +159,7 @@ body {
   padding: 2em 0;
   line-height: 1.5em;
 }
+
 .page:nth-child(odd) {
   background-position: right top;
 }
