@@ -9,7 +9,7 @@ export class PlantingPageComponent {
   plants = [
     {
       name: 'Plant A',
-      image: 'assets/lavender.png',
+      image: 'assets/lavendel.png',
       top: 30,
       left: 40,
       humidity: 65,
