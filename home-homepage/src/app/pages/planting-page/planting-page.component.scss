@@ -6,27 +6,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: rgb(229, 251, 203);
 }
 
-img {
-  width: 80vw; /* 80% of the viewport width */
-  max-height: 80vh; /* 80% of the viewport height */
-  object-fit: contain;
-}
+div {
+  text-align: center;
 
-// home-button {
-//   background-image: url("/assets/home.gif");
-//   background-size: cover;
-//   background-repeat: no-repeat;
-//   mix-blend-mode: multiply;
-//   width: 5%;
-//   height: 10%;
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   margin: 1rem;
-//   padding: 0.5rem;
-//   border: none;
-//   border-radius: 0.5rem;
-//   cursor: pointer;
-// }
+  img {
+    object-fit: contain;
+    max-width: 80vw;
+    max-height: 80vh; /* 80% of the viewport height */
+    height: auto;
+  }
+}
