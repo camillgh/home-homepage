@@ -24,7 +24,9 @@ p {
   height: 27.5vw; /* Decrease the height for responsiveness */
   margin-bottom: 0.25em;
   background: top no-repeat;
-  background-size: cover;
+  background-size: contain;
+  background-position: center;
+  overflow: hidden; /* Add this line to hide any overflowing content */
 }
 
 .page:nth-child(even) {
