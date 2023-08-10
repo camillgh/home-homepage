@@ -74,4 +74,10 @@
   .plant-container:hover .info-bubble {
     display: block;
   }
+  .plant-image {
+    object-fit: contain;
+    width: 10vw; // Set the width to your desired size
+    height: 10vh; // Set the height to your desired size
+    transition: transform 0.3s ease-in-out;
+  }
 }
