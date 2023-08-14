@@ -24,11 +24,23 @@ export class PlantingPageComponent {
   initialMouseX = 0;
   initialMouseY = 0;
 
+  ngOnInit() {
+    const savedPlants = localStorage.getItem('plants');
+    if (savedPlants) {
+      this.plants = JSON.parse(savedPlants);
+    }
+  }
+
   toggleEditMode() {
     if (!this.editMode) {
       this.activePlantIndex = null;
+      this.savePlantPositions(); // Save positions when exiting edit mode
     }
     this.editMode = !this.editMode;
+  }
+
+  public savePlantPositions() {
+    localStorage.setItem('plants', JSON.stringify(this.plants));
   }
 
   startDrag(event: MouseEvent, index: number) {
@@ -61,9 +73,5 @@ export class PlantingPageComponent {
       this.initialMouseX = event.clientX;
       this.initialMouseY = event.clientY;
     }
-  }
-
-  private savePlantPositions() {
-    // Implement your logic to save the updated plant positions to a data store or backend.
   }
 }

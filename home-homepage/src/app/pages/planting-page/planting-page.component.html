@@ -1,7 +1,7 @@
 <div class="planting-page">
   <app-home-button></app-home-button>
-  <button (click)="toggleEditMode()" class="edit-button">
-    {{ editMode ? "Save" : "Edit" }}
+  <button class="edit-button" role="button" (click)="toggleEditMode()">
+    {{ editMode ? "Save" : "Move plants" }}
   </button>
   <div [class.edit-mode]="editMode">
     <img src="assets/layout_home.png" alt="Home Layout" />
