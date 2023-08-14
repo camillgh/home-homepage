@@ -49,6 +49,9 @@ export class PlantingPageComponent {
       this.activePlantIndex = index;
       this.initialMouseX = event.clientX;
       this.initialMouseY = event.clientY;
+
+      // Prevent the default drag behavior
+      event.preventDefault();
     }
   }
 
