@@ -1,6 +1,12 @@
 <div class="planting-page">
   <app-home-button></app-home-button>
-  <button class="edit-button" role="button" (click)="toggleEditMode()">
+  <div class="overlay" *ngIf="editMode"></div>
+  <button
+    class="edit-button"
+    role="button"
+    [ngClass]="{ 'edit-mode': editMode }"
+    (click)="toggleEditMode()"
+  >
     {{ editMode ? "Save" : "Move plants" }}
   </button>
   <div [class.edit-mode]="editMode">
