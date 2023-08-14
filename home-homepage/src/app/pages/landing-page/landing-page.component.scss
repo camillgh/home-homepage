@@ -80,10 +80,14 @@ body {
   text-decoration: none;
   color: #bbb;
   height: 100%;
+  transition: transform 0.2s ease-in-out;
+  transform: scale(1);
 }
 
 .buttons b {
   margin-top: auto;
+  transition: transform 0.2s ease-in-out;
+  transform: scale(1);
   font-size: 4vw;
   font-weight: bold;
   text-align: center;
