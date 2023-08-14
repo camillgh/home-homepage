@@ -8,8 +8,16 @@ import { Component, HostListener } from '@angular/core';
 export class PlantingPageComponent {
   plants = [
     {
-      name: 'Plant A',
+      name: 'Lavendel',
       image: 'assets/lavendel.png',
+      top: 30,
+      left: 40,
+      humidity: 65,
+      healthy: true,
+    },
+    {
+      name: 'Sopp',
+      image: 'assets/red_mushroom.png',
       top: 30,
       left: 40,
       humidity: 65,
@@ -25,9 +33,9 @@ export class PlantingPageComponent {
   initialMouseY = 0;
 
   ngOnInit() {
-    const savedPlants = localStorage.getItem('plants');
+    const savedPlants = localStorage.getItem('plants'); // Retrieve plants data
     if (savedPlants) {
-      this.plants = JSON.parse(savedPlants);
+      this.plants = JSON.parse(savedPlants); // Parse and assign plant data
     }
   }
 

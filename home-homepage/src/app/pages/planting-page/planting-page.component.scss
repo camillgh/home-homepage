@@ -154,4 +154,37 @@
     z-index: 2; /* Place the overlay above other content */
     pointer-events: none; /* Allow interactions with content below */
   }
+
+  .plants-list {
+    position: absolute;
+    top: 150px;
+    right: 570px;
+    width: 200px; /* Adjust width as needed */
+    background-color: rgba(
+      255,
+      255,
+      255,
+      0.8
+    ); /* Semi-transparent white background */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+
+  .plants-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .plants-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .plant-icon {
+    width: 20px; /* Adjust icon size as needed */
+    height: 20px;
+    margin-right: 8px;
+  }
 }

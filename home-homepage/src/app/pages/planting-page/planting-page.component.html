@@ -9,6 +9,16 @@
   >
     {{ editMode ? "Save" : "Move plants" }}
   </button>
+
+  <div class="plants-list">
+    <ul>
+      <li *ngFor="let plant of plants">
+        <img [src]="plant.image" [alt]="plant.name" class="plant-icon" />
+        {{ plant.name }}
+      </li>
+    </ul>
+  </div>
+
   <div [class.edit-mode]="editMode">
     <img src="assets/layout_home.png" alt="Home Layout" />
     <ng-container *ngFor="let plant of plants; let i = index">
