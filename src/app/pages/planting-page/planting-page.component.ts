@@ -16,8 +16,8 @@ export class PlantingPageComponent {
       healthy: true,
     },
     {
-      name: 'Sopp',
-      image: 'assets/red_mushroom.png',
+      name: 'Hengeplante',
+      image: 'assets/hengeplante.png',
       top: 30,
       left: 40,
       humidity: 65,
@@ -86,3 +86,21 @@ export class PlantingPageComponent {
     }
   }
 }
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from 'firebase/app';
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: 'AIzaSyBs8MW6JD2yGb4Vh6g0_iKWJG1lwd0zUXg',
+  authDomain: 'home-homepage.firebaseapp.com',
+  projectId: 'home-homepage',
+  storageBucket: 'home-homepage.appspot.com',
+  messagingSenderId: '101456984618',
+  appId: '1:101456984618:web:e8f15a74f7d188867a6153',
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
