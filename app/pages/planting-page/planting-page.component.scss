@@ -1,0 +1,190 @@
+.planting-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(229, 251, 203);
+  cursor: url("/assets/red_bird.cur"), auto !important;
+
+  .edit-button {
+    margin-bottom: 20px;
+  }
+
+  .edit-mode {
+    cursor: grab;
+
+    .plant-container {
+      cursor: grab;
+    }
+
+    .plant-container.grabbing {
+      cursor: grabbing;
+    }
+  }
+
+  .plant-container {
+    position: absolute;
+    width: 10vw;
+    height: 10vh;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  img {
+    object-fit: contain;
+    max-width: 80vw;
+    max-height: 80vh; /* 80% of the viewport height */
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .info-bubble {
+    position: absolute;
+    display: none;
+    padding: 8px;
+    border-radius: 8px;
+    color: white;
+    font-size: 12px;
+    white-space: nowrap;
+    transform: translate(-50%, -120%);
+    pointer-events: none;
+  }
+
+  .green {
+    background-color: #4caf50;
+  }
+
+  .red {
+    background-color: #e57373;
+  }
+
+  .healthy-icon {
+    color: red;
+    margin-left: 4px;
+  }
+
+  .needs-water-icon {
+    color: green;
+    margin-left: 4px;
+  }
+
+  .plant-container:hover img {
+    transform: scale(1.2);
+  }
+
+  .plant-container:hover .info-bubble {
+    display: block;
+  }
+  .plant-image {
+    object-fit: contain;
+    width: 10vw; // Set the width to your desired size
+    height: 10vh; // Set the height to your desired size
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .edit-button {
+    position: absolute;
+    top: 50px;
+    right: 300px;
+    margin-top: 0;
+    margin-right: 0;
+    appearance: none;
+    background-color: rgba(234, 246, 99, 0.298);
+    border: 2px solid #1a1a1a;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #3b3b3b;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    min-height: 60px;
+    outline: none;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 200px; // Set the width to 200px
+    will-change: transform;
+  }
+
+  .edit-button:disabled {
+    pointer-events: none;
+  }
+
+  .edit-button:hover {
+    color: #fff;
+    background-color: #1a1a1a;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }
+
+  .edit-button:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }
+
+  /* Apply this style to the Save button when in edit mode */
+  .edit-button.edit-mode {
+    transform: scale(1.5); /* Scale the button to 1.5x its size */
+    transition: transform 0.3s ease-in-out; /* Add a smooth transition effect */
+    background-color: (
+      234,
+      246,
+      99
+    ); /* Change this color to your desired brighter color */
+  }
+
+  position: relative; /* Make sure the overlay is positioned correctly */
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1); /* Semi-transparent black color */
+    z-index: 2; /* Place the overlay above other content */
+    pointer-events: none; /* Allow interactions with content below */
+  }
+
+  .plants-list {
+    position: absolute;
+    top: 150px;
+    right: 570px;
+    width: 200px; /* Adjust width as needed */
+    background-color: rgba(
+      255,
+      255,
+      255,
+      0.8
+    ); /* Semi-transparent white background */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+
+  .plants-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .plants-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .plant-icon {
+    width: 20px; /* Adjust icon size as needed */
+    height: 20px;
+    margin-right: 8px;
+  }
+}
