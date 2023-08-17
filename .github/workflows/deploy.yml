@@ -29,7 +29,12 @@ jobs:
           echo "Node.js version: $(node -v)"
           echo "npm version: $(npm -v)"
           ng version
-          ng build --configuration=production
+          ng build
+
+      - name: Print folder structure
+        run: |
+          pwd
+          ls -R
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
