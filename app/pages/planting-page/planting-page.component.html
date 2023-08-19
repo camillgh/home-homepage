@@ -1,0 +1,59 @@
+<div class="planting-page">
+  <app-home-button></app-home-button>
+  <div class="overlay" *ngIf="editMode"></div>
+  <button
+    class="edit-button"
+    role="button"
+    [ngClass]="{ 'edit-mode': editMode }"
+    (click)="toggleEditMode()"
+  >
+    {{ editMode ? "Save" : "Move plants" }}
+  </button>
+
+  <div class="plants-list">
+    <ul>
+      <li *ngFor="let plant of plants">
+        <img [src]="plant.image" [alt]="plant.name" class="plant-icon" />
+        {{ plant.name }}
+      </li>
+    </ul>
+  </div>
+
+  <div [class.edit-mode]="editMode">
+    <img src="assets/layout_home.png" alt="Home Layout" />
+    <ng-container *ngFor="let plant of plants; let i = index">
+      <div
+        class="plant-container"
+        [style.top.%]="plant.top"
+        [style.left.%]="plant.left"
+        [style.z-index]="editMode ? 1 : 0"
+        (mousedown)="startDrag($event, i)"
+        (mouseup)="endDrag()"
+        (mousemove)="drag($event)"
+      >
+        <img
+          [src]="plant.image"
+          [alt]="plant.name"
+          [class.healthy]="plant.healthy"
+          [class.needs-water]="!plant.healthy"
+          class="plant-image"
+        />
+        <div
+          class="info-bubble"
+          [ngClass]="{ green: plant.healthy, red: !plant.healthy }"
+        >
+          {{ plant.name }} - Humidity: {{ plant.humidity }}%
+          <span
+            class="status-icon"
+            [ngClass]="{
+              'healthy-icon': plant.healthy,
+              'needs-water-icon': !plant.healthy
+            }"
+          >
+            !
+          </span>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
