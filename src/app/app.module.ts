@@ -1,6 +1,5 @@
 import { NgModule, Inject } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { DOCUMENT } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
