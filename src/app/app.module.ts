@@ -10,6 +10,7 @@ import { ToDoodelidooPageComponent } from './pages/to-doodelidoo-page/to-doodeli
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { HomeButtonComponent } from './buttons/home-button/home-button.component';
 import { EditSaveVeggButtonComponent } from './buttons/edit-save-vegg-button/edit-save-vegg-button.component';
+import { EnvironmentService } from './environment.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { EditSaveVeggButtonComponent } from './buttons/edit-save-vegg-button/edi
     EditSaveVeggButtonComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
-  providers: [],
+  providers: [EnvironmentService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
