@@ -1,6 +1,7 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Inject } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { DOCUMENT } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,4 +27,14 @@ import { EnvironmentService } from './environment.service';
   providers: [EnvironmentService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private environmentService: EnvironmentService
+  ) {
+    const baseHref = environmentService.getBaseHref();
+    const baseTag = this.document.createElement('base');
+    baseTag.setAttribute('href', baseHref);
+    this.document.head.appendChild(baseTag);
+  }
+}
