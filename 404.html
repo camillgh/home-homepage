@@ -3,10 +3,10 @@
   <head>
     <title>404 - Page Not Found</title>
     <script>
-      const url = window.location.href;
-      if (!url.includes("/home-homepage/")) {
-        window.location.href =
-          url.replace(/\/[^/]*$/, "/home-homepage/") + "?path=" + url;
+      const pathname = location.pathname;
+      if (pathname.startsWith("/home-homepage/")) {
+        const newPath = pathname.replace("/home-homepage/", "/");
+        location.replace(newPath);
       }
     </script>
   </head>
