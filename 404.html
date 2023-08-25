@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>404 - Page Not Found</title>
+    <script>
+      const url = window.location.href;
+      if (!url.includes("/home-homepage/")) {
+        window.location.href =
+          url.replace(/\/[^/]*$/, "/home-homepage/") + "?path=" + url;
+      }
+    </script>
+  </head>
+  <body>
+    <p>Redirecting...</p>
+  </body>
+</html>
