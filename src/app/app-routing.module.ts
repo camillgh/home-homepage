@@ -6,6 +6,7 @@ import { PlantingPageComponent } from './pages/planting-page/planting-page.compo
 import { KokebokPageComponent } from './pages/kokebok-page/kokebok-page.component';
 import { ToDoodelidooPageComponent } from './pages/to-doodelidoo-page/to-doodelidoo-page.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
 })
 export class AppRoutingModule {}
