@@ -4,8 +4,10 @@
     <title>404 - Page Not Found</title>
     <script>
       const pathname = location.pathname;
-      if (pathname.startsWith("/home-homepage/")) {
-        const newPath = pathname.replace("/home-homepage/", "/");
+      const baseUrl = "/home-homepage/";
+
+      if (pathname.startsWith(baseUrl)) {
+        const newPath = pathname.replace(baseUrl, "/");
         location.replace(newPath);
       }
     </script>
