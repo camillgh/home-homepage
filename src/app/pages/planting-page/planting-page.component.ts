@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { Plant } from '../../models/plant.model';
 
 @Component({
   selector: 'app-planting-page',
@@ -6,7 +7,7 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./planting-page.component.scss'],
 })
 export class PlantingPageComponent {
-  plants = [
+  plants: Plant[] = [
     {
       name: 'Lavendel',
       image: 'assets/lavendel.png',
