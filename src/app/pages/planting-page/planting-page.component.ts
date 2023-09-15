@@ -1,4 +1,6 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
 import { Plant } from '../../models/plant.model';
 
 @Component({
@@ -6,53 +8,47 @@ import { Plant } from '../../models/plant.model';
   templateUrl: './planting-page.component.html',
   styleUrls: ['./planting-page.component.scss'],
 })
-export class PlantingPageComponent {
-  plants: Plant[] = [
-    {
-      name: 'Lavendel',
-      image: 'assets/lavendel.png',
-      top: 30,
-      left: 40,
-      humidity: 65,
-      healthy: true,
-    },
-    {
-      name: 'Hengeplante',
-      image: 'assets/hengeplante.png',
-      top: 30,
-      left: 40,
-      humidity: 65,
-      healthy: true,
-    },
-    // Add more plant objects as needed
-  ];
-
+export class PlantingPageComponent implements OnInit {
+  plants: Plant[] = [];
   editMode = false;
   dragging = false;
   activePlantIndex: number | null = null;
   initialMouseX = 0;
   initialMouseY = 0;
 
-  ngOnInit() {
-    const savedPlants = localStorage.getItem('plants'); // Retrieve plants data
-    if (savedPlants) {
-      this.plants = JSON.parse(savedPlants); // Parse and assign plant data
-    }
+  newPlant: Plant = {
+    name: '',
+    humidity: 0,
+    healthy: false,
+    top: 30,
+    left: 40,
+  };
+
+  plants$: Observable<Plant[]> | undefined;
+
+  constructor(private afs: AngularFirestore) {}
+
+  ngOnInit(): void {
+    const plantCollection = this.afs.collection<Plant>('plants');
+    this.plants$ = plantCollection.valueChanges();
   }
 
-  toggleEditMode() {
+  toggleEditMode(): void {
     if (!this.editMode) {
       this.activePlantIndex = null;
-      this.savePlantPositions(); // Save positions when exiting edit mode
+      this.savePlantPositions();
     }
     this.editMode = !this.editMode;
   }
 
-  public savePlantPositions() {
-    localStorage.setItem('plants', JSON.stringify(this.plants));
+  public savePlantPositions(): void {
+    // Update plant positions in Firebase Firestore
+    this.afs.collection('plants').doc('NIqwvRYLjQqOVHpaHQj8').set({
+      plants: this.plants,
+    });
   }
 
-  startDrag(event: MouseEvent, index: number) {
+  startDrag(event: MouseEvent, index: number): void {
     if (this.editMode) {
       this.dragging = true;
       this.activePlantIndex = index;
@@ -64,26 +60,46 @@ export class PlantingPageComponent {
     }
   }
 
-  @HostListener('document:mouseup')
-  endDrag() {
+  endDrag(): void {
     this.dragging = false;
     this.activePlantIndex = null;
     this.savePlantPositions();
   }
 
-  @HostListener('document:mousemove', ['$event'])
-  drag(event: MouseEvent) {
+  drag(event: MouseEvent): void {
     if (this.dragging && this.activePlantIndex !== null) {
       const deltaX = event.clientX - this.initialMouseX;
       const deltaY = event.clientY - this.initialMouseY;
 
-      this.plants[this.activePlantIndex].top +=
+      this.plants[this.activePlantIndex]['top'] +=
         (deltaY * 100) / window.innerHeight;
-      this.plants[this.activePlantIndex].left +=
+      this.plants[this.activePlantIndex]['left'] +=
         (deltaX * 100) / window.innerWidth;
 
       this.initialMouseX = event.clientX;
       this.initialMouseY = event.clientY;
     }
+  }
+
+  addNewPlant(): void {
+    // Add the new plant to the local array
+    this.plants.push({ ...this.newPlant });
+
+    // Add the new plant to Firebase Firestore
+    this.afs.collection('plants').add(this.newPlant);
+
+    // Clear the form for the next input
+    this.newPlant = {
+      name: '',
+      humidity: 0,
+      healthy: false,
+      top: 30,
+      left: 40,
+    };
+  }
+
+  toggleHealthy(): void {
+    // Invert the healthy value when the checkbox is changed
+    this.newPlant.healthy = !this.newPlant.healthy;
   }
 }

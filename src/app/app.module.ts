@@ -11,11 +11,14 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 import { HomeButtonComponent } from './buttons/home-button/home-button.component';
 import { EditSaveVeggButtonComponent } from './buttons/edit-save-vegg-button/edit-save-vegg-button.component';
 import { EnvironmentService } from './environment.service';
+import { FormsModule } from '@angular/forms';
 
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
 import { firebaseConfig } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 @NgModule({
   declarations: [
@@ -30,8 +33,9 @@ import { firebaseConfig } from '../environments/environment';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    provideFirebaseApp(() => initializeApp(firebaseConfig)),
-    provideFirestore(() => getFirestore()),
+    AngularFireModule.initializeApp(firebaseConfig), // Initialize AngularFire
+    AngularFirestoreModule, // Import AngularFirestoreModule
+    FormsModule,
   ],
   providers: [EnvironmentService],
   bootstrap: [AppComponent],
