@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Plant } from '../../models/plant.model';
 
 @Component({
@@ -29,8 +29,23 @@ export class PlantingPageComponent implements OnInit {
   constructor(private afs: AngularFirestore) {}
 
   ngOnInit(): void {
-    const plantCollection = this.afs.collection<Plant>('plants');
-    this.plants$ = plantCollection.valueChanges();
+    // Fetch data from Firestore and keep it in sync
+    this.plants$ = this.afs
+      .collection<Plant>('plants')
+      .snapshotChanges()
+      .pipe(
+        map((actions) =>
+          actions.map((a) => {
+            const data = a.payload.doc.data() as Plant;
+            const id = a.payload.doc.id;
+            return { id, ...data };
+          })
+        )
+      );
+
+    this.plants$.subscribe((plants) => {
+      this.plants = plants;
+    });
   }
 
   toggleEditMode(): void {
@@ -82,24 +97,34 @@ export class PlantingPageComponent implements OnInit {
   }
 
   addNewPlant(): void {
-    // Add the new plant to the local array
-    this.plants.push({ ...this.newPlant });
-
     // Add the new plant to Firebase Firestore
-    this.afs.collection('plants').add(this.newPlant);
-
-    // Clear the form for the next input
-    this.newPlant = {
-      name: '',
-      humidity: 0,
-      healthy: false,
-      top: 30,
-      left: 40,
-    };
+    this.afs
+      .collection('plants')
+      .add(this.newPlant)
+      .then(() => {
+        // Clear the form for the next input
+        this.newPlant = {
+          name: '',
+          humidity: 0,
+          healthy: false,
+          top: 30,
+          left: 40,
+        };
+      })
+      .catch((error) => {
+        console.error('Error adding document: ', error);
+      });
   }
 
   toggleHealthy(): void {
     // Invert the healthy value when the checkbox is changed
     this.newPlant.healthy = !this.newPlant.healthy;
+  }
+
+  removePlant(plant: Plant): void {
+    if (plant.id) {
+      // Remove the plant from Firebase Firestore using its document ID
+      this.afs.collection('plants').doc(plant.id).delete();
+    }
   }
 }

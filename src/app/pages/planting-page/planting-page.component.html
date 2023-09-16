@@ -21,6 +21,7 @@
     <ul>
       <li *ngFor="let plant of plants">
         {{ plant.name }}
+        <button (click)="removePlant(plant)">Remove</button>
       </li>
     </ul>
   </div>
