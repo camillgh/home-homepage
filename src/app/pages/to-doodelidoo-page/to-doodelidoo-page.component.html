@@ -1,3 +1,19 @@
 <body>
   <app-home-button></app-home-button>
+
+  <div class="flex-container">
+    <div class="left-child">
+      <div class="scrollable-box">
+        <div [innerHTML]="markdownContent | markdown"></div>
+      </div>
+    </div>
+    <div class="right-child">
+      <div class="image-box">
+        <img
+          src="../assets/first_edition_drawing.png"
+          alt="First Edition Drawing"
+        />
+      </div>
+    </div>
+  </div>
 </body>
