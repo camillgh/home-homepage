@@ -12,6 +12,7 @@ import { HomeButtonComponent } from './buttons/home-button/home-button.component
 import { EditSaveVeggButtonComponent } from './buttons/edit-save-vegg-button/edit-save-vegg-button.component';
 import { EnvironmentService } from './environment.service';
 import { FormsModule } from '@angular/forms';
+import { MarkdownModule } from 'ngx-markdown';
 
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
@@ -36,6 +37,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     AngularFireModule.initializeApp(firebaseConfig), // Initialize AngularFire
     AngularFirestoreModule, // Import AngularFirestoreModule
     FormsModule,
+    MarkdownModule.forRoot(),
   ],
   providers: [EnvironmentService],
   bootstrap: [AppComponent],
