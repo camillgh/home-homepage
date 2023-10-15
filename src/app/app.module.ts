@@ -2,6 +2,7 @@ import { NgModule, Inject } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 
+import { MarkdownModule } from 'ngx-markdown';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PlantingPageComponent } from './pages/planting-page/planting-page.component';
@@ -22,7 +23,7 @@ import { EnvironmentService } from './environment.service';
     HomeButtonComponent,
     EditSaveVeggButtonComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, MarkdownModule.forRoot()],
   providers: [EnvironmentService],
   bootstrap: [AppComponent],
 })
