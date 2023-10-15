@@ -12,11 +12,6 @@ import { HomeButtonComponent } from './buttons/home-button/home-button.component
 import { EditSaveVeggButtonComponent } from './buttons/edit-save-vegg-button/edit-save-vegg-button.component';
 import { EnvironmentService } from './environment.service';
 
-import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-
-import { firebaseConfig } from '../environments/environment';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,12 +22,7 @@ import { firebaseConfig } from '../environments/environment';
     HomeButtonComponent,
     EditSaveVeggButtonComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    provideFirebaseApp(() => initializeApp(firebaseConfig)),
-    provideFirestore(() => getFirestore()),
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [EnvironmentService],
   bootstrap: [AppComponent],
 })
