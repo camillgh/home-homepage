@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'planteting', component: PlantingPageComponent },
   { path: 'kokebok', component: KokebokPageComponent },
-  { path: 'to-doodelidoo', component: ToDoodelidooPageComponent },
+  { path: 'curtaincobain', component: ToDoodelidooPageComponent },
   { path: '**', redirectTo: '' },
 ];
 
